@@ -10,8 +10,9 @@ class PunkapiService
         ?string $beer_name = null,
         ?string $food = null,
         ?string $malt = null,
-        ?int $ibu_gt = null,
-    ) {
+        ?int    $ibu_gt = null,
+    ): array
+    {
         $params = array_filter(get_defined_vars());
 
         return Http::punkapi()
