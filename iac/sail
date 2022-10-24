@@ -9,10 +9,10 @@ if [ $# -gt 0 ]; then
         docker run -it --rm \
             -v $PWD:/opt \
             -w /opt \
-            ansible:latest \
+            victor/ansible:latest \
             ansible-playbook \
             -u ubuntu -i ansible/hosts \
-            --private-key ./.pk/olw_pk.pem \
+            --private-key ./.pk/victordev1_pk.pem \
             ansible/playbook.yml
 
         exit 0

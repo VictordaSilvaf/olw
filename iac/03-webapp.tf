@@ -1,5 +1,5 @@
-resource "aws_key_pair" "victordev1_kp" {
-    key_name = "victordev1_kp"
+resource "aws_key_pair" "victordev1_pk" {
+    key_name = "victordev1_pk"
     public_key = file("./.pk/victordev1_pk.pub")
 }
 
@@ -24,10 +24,11 @@ resource "aws_instance" "victordev1_web" {
     ami = data.aws_ami.ubuntu.id
     instance_type = var.SETTINGS.web_app.instance_type
     subnet_id = aws_subnet.victordev1_public_subnet[count.index].id
-    key_name = aws_key_pair.victordev1_kp.key_name
+    key_name = aws_key_pair.victordev1_pk.key_name
     vpc_security_group_ids = [aws_security_group.victordev1_web_sg.id]
 
     tags = {
+
         Name = "victordev1_web_${count.index}"
         Project = "victordev1"
     }
