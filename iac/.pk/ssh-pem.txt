@@ -1,0 +1,11 @@
+KEY PAIR
+
+criar chave:
+ssh-keygen -t rsa -b 4096 -m pem -f victordev1_pk
+
+
+Gerar .pem file
+openssl rsa -in victordev1_pk --outform pem > victordev1_pk.pem
+
+Permissao
+chmod 400 victordev1_pk.pem
